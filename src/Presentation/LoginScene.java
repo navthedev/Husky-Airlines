@@ -3,15 +3,15 @@ package Presentation;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 
-/**
- * Created by Administrator on 5/18/2016.
- */
+
 
 public class LoginScene {
 
@@ -19,10 +19,11 @@ public class LoginScene {
     private static Scene scene;
     private static VBox loginLayout;
     private static Label loginLabel;
-    private static Label hermesLabel;
+    private static Label huskyLabel;
     private static TextField usernameField;
     private static PasswordField passwordField;
-    private static Button loginButton;
+    private static Button forgotPass;
+	private static Button loginButton;
 	private static Button signUpButton;
 
 
@@ -34,12 +35,20 @@ public class LoginScene {
         loginLabel = new Label("Log in");
         loginLabel.setPadding((new Insets(0, 0, 30, 0)));
         loginLabel.setStyle("-fx-font-size: 24pt");
+        
 
 
-        //hermesLabel
-        hermesLabel=new Label("Husky Airlines");
-        hermesLabel.setId("welcome");
-
+        //huskyLabel
+        huskyLabel=new Label("Husky Airlines");
+        huskyLabel.setId("welcome");
+        
+        
+        forgotPass = new Button ("Forgot Password ?");
+        forgotPass.setId("Forgot Password");
+        forgotPass.setTextFill(Color.BLUE);
+        forgotPass.setMaxWidth(520);
+        
+        
         //usernameField
         usernameField=new TextField();
         usernameField.setPromptText("User ID");
@@ -63,7 +72,7 @@ public class LoginScene {
         //layout
         loginLayout = new VBox(10);
         loginLayout.setAlignment(Pos.CENTER);
-        loginLayout.getChildren().addAll(hermesLabel,loginLabel,usernameField,passwordField,loginButton,signUpButton);
+        loginLayout.getChildren().addAll(huskyLabel,loginLabel,usernameField,passwordField,forgotPass,loginButton,signUpButton);
 
         //scene
         scene = new Scene(loginLayout,400,500);
@@ -89,8 +98,18 @@ public class LoginScene {
     }
 
     public static Label getHermesLabel() {
-        return hermesLabel;
+        return huskyLabel;
     }
+    
+    public static Button getForgotPass() {
+  		return forgotPass;
+  	}
+
+
+  	public static void setForgotPass(Button forgotPass) {
+  		LoginScene.forgotPass = forgotPass;
+  	}
+
 
     public static TextField getUsernameField() {
         return usernameField;

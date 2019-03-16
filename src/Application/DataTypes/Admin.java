@@ -4,21 +4,30 @@ package Application.DataTypes;
 public class Admin {
 
     //fields
-    private String first_name, last_name, password,admin_id,role;
+    private String first_name, last_name, password,admin_id,role,email;
 
 	//constructors
     public Admin() {}
 
-    public Admin(String admin_id, String first_name, String last_name, String password, String role) {
+    public Admin(String admin_id, String first_name, String last_name, String password, String role,String email) {
         this.admin_id = admin_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.password = password;
         this.role = role;
+        this.email = email;
     }
 
 
-    //getters, setters
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	//getters, setters
     public String getAdmin_id() {
         return admin_id;
     }
@@ -70,6 +79,7 @@ public class Admin {
                 ", last_name='" + last_name + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                 ", email='" + email + '\'' +
                 '}';
     }
 

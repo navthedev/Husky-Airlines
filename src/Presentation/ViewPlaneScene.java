@@ -1,17 +1,12 @@
 package Presentation;
 
 import Application.DataTypes.Plane;
-import DataAccess.PlaneData;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
-/**
- * Created by Administrator on 5/18/2016.
- */
 
 public class ViewPlaneScene {
 

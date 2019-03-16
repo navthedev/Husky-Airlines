@@ -12,9 +12,6 @@ import javafx.scene.layout.VBox;
 
 import java.util.Date;
 
-/**
- * Created by Administrator on 5/18/2016.
- */
 
 public class ViewBookingScene {
 

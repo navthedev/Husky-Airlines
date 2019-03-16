@@ -6,9 +6,6 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 
-/**
- * Created by Petru on 19-May-16.
- */
 
 public class AirlineData {
 

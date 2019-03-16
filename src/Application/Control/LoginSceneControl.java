@@ -6,6 +6,7 @@ import org.apache.commons.codec.binary.Base64;
 
 import Application.DataTypes.Admin;
 import DataAccess.AdminData;
+import Presentation.ForgotPasswordScene;
 import Presentation.LoginScene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,6 +19,7 @@ public class LoginSceneControl {
 	private static Button signUpButton;
 	private static TextField usernameField;
 	private static TextField passwordField;
+	private static Button forgotPass;
 	private static ArrayList<Admin> admins;
 	private static String username;
 	private static String password;
@@ -37,6 +39,8 @@ public class LoginSceneControl {
 		//loginButton
 		loginButton = LoginScene.getLoginButton();
 		signUpButton = LoginScene.getSignUpButton();
+		forgotPass = LoginScene.getForgotPass();
+		
 		loginButton.setDefaultButton(true);
 		loginButton.setOnAction(e->{
 			//username
@@ -49,6 +53,11 @@ public class LoginSceneControl {
 		});
 		signUpButton.setOnAction(e->{
 			handle_signUpButton();
+		});
+		
+		forgotPass.setOnAction(e->{
+			MainControl.ForgotPassScene();
+
 		});
 
 
@@ -73,21 +82,15 @@ public class LoginSceneControl {
 		//    	String dec = new String(decodedBytes);
 
 		if(isInputValid()) {
-			
+
 
 
 
 			//verify the user credentials in database
 			for(Admin admin : AdminData.getAdmins()) {
-				if ("Customer".equalsIgnoreCase(admin.getRole())) {
-					byte[] decodedBytes = Base64.decodeBase64(admin.getPassword().getBytes());
-				    	System.out.println("decodedBytes " + new String(decodedBytes));
-				    	paas = new String(decodedBytes);
-					   //valid user and password Customer Login
-				}else {
-					paas = admin.getPassword().toString();
-				}
-
+				byte[] decodedBytes = Base64.decodeBase64(admin.getPassword().getBytes());
+				System.out.println("decodedBytes " + new String(decodedBytes));
+				paas = new String(decodedBytes);
 				if (admin.getAdmin_id().equalsIgnoreCase(username) && paas.equalsIgnoreCase(password)) {
 					if ("Customer".equalsIgnoreCase(admin.getRole())) {
 						MainControl.showCustomerMenuScene(); //valid user and password Customer Login

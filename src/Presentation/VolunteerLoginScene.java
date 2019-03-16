@@ -10,10 +10,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 
-/**
- * Created by Petru on 18-May-16.
- */
-
 public class VolunteerLoginScene {
 
     //fields

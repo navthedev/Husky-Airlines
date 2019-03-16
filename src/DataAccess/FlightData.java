@@ -9,9 +9,7 @@ import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/**
- * Created by DragonClau on 19/5/2016.
- */
+
 
 public class FlightData {
 

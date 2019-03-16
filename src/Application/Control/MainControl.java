@@ -10,6 +10,7 @@ import DataAccess.DataConnection;
 import Presentation.BookingEditScene;
 import Presentation.CustomerEditScene;
 import Presentation.FlightsEditScene;
+import Presentation.ForgotPasswordScene;
 import Presentation.LoginScene;
 import Presentation.MenuScene;
 import Presentation.PlaneEditScene;
@@ -184,6 +185,20 @@ public class MainControl {
         SignUpAddScene.getDialogStage().initOwner(window);
         SignUpAddScene.getDialogStage().setTitle("Customer menu");
         SignUpAddScene.getDialogStage().showAndWait();
+
+        return SignUpAddSceneControl.isOkPressed();
+    }
+    
+    //customer edit dialog
+    public static boolean ForgotPassScene(){
+        //initialization of scene
+        ForgotPasswordScene.initialize();
+        ForgotPasswordSceneControl.initialize();
+
+
+        ForgotPasswordScene.getDialogStage().initOwner(window);
+        ForgotPasswordScene.getDialogStage().setTitle("Reset Password");
+        ForgotPasswordScene.getDialogStage().showAndWait();
 
         return SignUpAddSceneControl.isOkPressed();
     }

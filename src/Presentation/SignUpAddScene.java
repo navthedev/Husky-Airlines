@@ -19,9 +19,9 @@ public class SignUpAddScene {
     private static Scene scene;
     private static GridPane gridPane;
     private static VBox vboxLabel, vboxText;
-    private static Label fName, lName, admin_id, password,confPassword,title;
+    private static Label fName, lName, admin_id, password,confPassword,title,email;
     private static Button okB,cancelB;
-    private static TextField fNameT, lNameT, admin_idT;
+    private static TextField fNameT, lNameT, admin_idT,emailT;
     private static  PasswordField passwordT,confPasswordT;
     private static BorderPane borderPane;
     private static HBox buttons;
@@ -37,6 +37,7 @@ public class SignUpAddScene {
         lName = new Label();
         password = new Label();
         confPassword= new Label();
+        email = new Label();
 
         // text boxes
         fNameT = new TextField();
@@ -44,6 +45,7 @@ public class SignUpAddScene {
         admin_idT = new TextField();
         passwordT = new PasswordField();
         confPasswordT = new PasswordField();
+        emailT = new TextField();
 
         //Title Label
         title.setText("\n\nFill in your Information");
@@ -55,6 +57,7 @@ public class SignUpAddScene {
         lName.setText("Last Name");
         password.setText("Password");
         confPassword.setText("Confirm Password");
+        email.setText("Email");
 
         //button setup
         okB = new Button("Ok");
@@ -73,8 +76,8 @@ public class SignUpAddScene {
         gridPane.setHgap(10);
         vboxText.setSpacing(25);
         vboxLabel.setSpacing(34);
-        vboxLabel.getChildren().addAll(admin_id,fName,lName,password,confPassword);
-        vboxText.getChildren().addAll(admin_idT,fNameT,lNameT,passwordT,confPasswordT,buttons);
+        vboxLabel.getChildren().addAll(admin_id,fName,lName,password,confPassword,email);
+        vboxText.getChildren().addAll(admin_idT,fNameT,lNameT,passwordT,confPasswordT,emailT,buttons);
         gridPane.add(vboxLabel, 0, 0);
         gridPane.add(vboxText, 1, 0);
         borderPane.setCenter(gridPane);
@@ -95,7 +98,15 @@ public class SignUpAddScene {
 
     //GETTERS
 
-    public static Stage getDialogStage(){
+    public static TextField getEmailT() {
+		return emailT;
+	}
+
+	public static void setEmailT(TextField emailT) {
+		SignUpAddScene.emailT = emailT;
+	}
+
+	public static Stage getDialogStage(){
         return dialogStage;
     }
 
