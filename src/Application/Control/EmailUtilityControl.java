@@ -24,8 +24,8 @@ public class EmailUtilityControl {
 		       properties.put("mail.smtp.port", "465");    
 			Session session = Session.getInstance(properties,
 					new javax.mail.Authenticator() {
-						protected PasswordAuthentication getPasswordAurhentication() {
-							return new PasswordAuthentication("navjotbhatti01@gmail.com", "cg071777");
+						protected PasswordAuthentication getPasswordAuthentication() {
+							return new PasswordAuthentication("mohittanejaldh@gmail.com", "m1o2h3i4t5");
 						}
 					});
 	      MimeMessage msg = new MimeMessage(session);
@@ -34,13 +34,13 @@ public class EmailUtilityControl {
 	      msg.addHeader("format", "flowed");
 	      msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-	      msg.setFrom(new InternetAddress("navjotbhatti01@gmail.com", "NoReply-JD"));
+	      msg.setFrom(new InternetAddress("mohittanejaldh@gmail.com", "NoReply-Husky Airines"));
 
 	      msg.setReplyTo(InternetAddress.parse(toEmail, false));
 
-	      msg.setSubject(subject, "Reset Password");
+	      msg.setSubject(subject);
 
-	      msg.setText(body, "New Password is abc123");
+	      msg.setText(body);
 
 	      msg.setSentDate(new Date());
 
@@ -48,7 +48,7 @@ public class EmailUtilityControl {
 	      System.out.println("Message is ready");
     	  Transport.send(msg);  
 
-	      System.out.println("EMail Sent Successfully!!");
+	      System.out.println("Email Sent Successfully!!");
 	    }
 	    catch (Exception e) {
 	      e.printStackTrace();

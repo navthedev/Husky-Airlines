@@ -1,6 +1,9 @@
 package Application.Control;
 
-import javax.mail.Session;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import org.apache.commons.codec.binary.Base64;
 
 import Application.DataTypes.Admin;
 import DataAccess.AdminData;
@@ -31,23 +34,32 @@ public class ForgotPasswordSceneControl {
 	public static void handle_okB() {
 		if (isInputValid()) {
 			String email ="";
-
-
 			for(Admin admin : AdminData.getAdmins()) {
 				email=admin.getEmail();
 
 				if(forgotLabel.getText().equalsIgnoreCase(admin.getEmail())) {
 				//do nothing
-					System.out.println((admin.getEmail()+ "Emailexist"));
 					
+					System.out.println((admin.getEmail()+ "Emailexist"));
+					int length = 6;
+		        	String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		        	             + "0123456789";
+		        	String pass = new Random().ints(length, 0, chars.length())
+		        	                         .mapToObj(i -> "" + chars.charAt(i))
+		        	                         .collect(Collectors.joining());
+		        	
+		        	
+		        	byte[] encodedBytes = Base64.encodeBase64(pass.getBytes());
+					String encodedPassword = new String(encodedBytes);
+					
+					AdminData.updateAdmin(email,encodedPassword);
+					EmailUtilityControl.sendEmail(email,"Reset Password","New Password is "+ pass);	
 					break;
 				}else {
 					System.out.println("Email doesnot exist");
 				}
-				ForgotPasswordScene.getDialogStage().close();
 			}
-			AdminData.updateAdmin(email);
-			EmailUtilityControl.sendEmail(email,"Reset Password","New Password is abc123");			
+			ForgotPasswordScene.getDialogStage().close();
 
 		}
 	}

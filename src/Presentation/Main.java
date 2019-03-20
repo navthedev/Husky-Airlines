@@ -1,7 +1,6 @@
 package Presentation;
 
-import Application.Control.*;
-import DataAccess.DataConnection;
+import Application.Control.MainControl;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

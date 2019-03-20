@@ -2,7 +2,6 @@ package Application.Control;
 
 import Application.DataTypes.Plane;
 import DataAccess.PlaneData;
-import Presentation.PlaneEditScene;
 import Presentation.ViewPlaneScene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;

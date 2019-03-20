@@ -7,8 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 
 
 public class MenuScene {
@@ -17,7 +15,7 @@ public class MenuScene {
     private static Scene scene;
     private static Pane layout;
     private static VBox vbox;
-    private static Label quoteLabel, welcomeLabel;
+    private static Label  welcomeLabel;
     private static ImageView img;
     private static Button bookingsB, customersB, flightsB, planesB, exitB;
 
@@ -26,10 +24,10 @@ public class MenuScene {
     public static void initialize() {
 
         //quoteLabel
-        quoteLabel = new Label("\"The reason birds can fly and we can't is simply because\n " +
-                "\t\t\tthey have perfect faith, for to have faith is to have wings..\"");
-        quoteLabel.setId("quote");
-        quoteLabel.relocate(50,520);
+       // quoteLabel = new Label("\"The reason birds can fly and we can't is simply because\n " +
+        //        "\t\t\tthey have perfect faith, for to have faith is to have wings..\"");
+       // quoteLabel.setId("quote");
+      //  quoteLabel.relocate(50,520);
 
         //welcomeLabel
         welcomeLabel = new Label("      Welcome\n\t   to\n Husky Airlines");
@@ -77,7 +75,7 @@ public class MenuScene {
 
         //layout
         layout = new Pane();
-        layout.getChildren().addAll(quoteLabel, img, welcomeLabel, vbox);
+        layout.getChildren().addAll(img, welcomeLabel, vbox);
 
         //scene
         scene = new Scene(layout, 1200, 700);
@@ -98,10 +96,6 @@ public class MenuScene {
 
     public static VBox getVbox() {
         return vbox;
-    }
-
-    public static Label getQuoteLabel() {
-        return quoteLabel;
     }
 
     public static Label getWelcomeLabel() {

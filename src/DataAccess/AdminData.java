@@ -52,7 +52,6 @@ public class AdminData {
         	String url = "INSERT INTO Admin VALUE('"+ admin_idT  + "',' "
                     + fNameT + "', '" + lNameT + "', '"  + password + "','customer',"+"'"+email+"');";
             statement.executeUpdate(url);
-           // customer.setCustomer_id(customers.indexOf(customer) + 1);
         }
 
         catch(Exception e){
@@ -60,22 +59,22 @@ public class AdminData {
         }
     }
     
-  //method to add a admin
-    public static void updateAdmin(String email)
+  //method to update a admin
+    public static void updateAdmin(String email,String password)
     {
         try{
         	
-            //statement.executeUpdate("UPDATE flight SET plane_id = "+flight.getPlane_id()+", schedule_id = "+flight.getSchedule_id()+", airline_id = "+flight.getAirline_id()+", first_class_left = "+flight.getFirst_class_left()+", coach_left = "+flight.getCoach_left()+",economy_left = "+flight.getEconomy_left()+",price = "+flight.getPrice()+" WHERE flight_id = "+flight.getFlight_id()+ ";");
-
-        	String url = "UPDATE Admin SET password= 'abc123' WHERE email ='"+ email+"';";
+        	
+        	String url = "UPDATE Admin SET password= '"+ password+"'"+" WHERE email ='"+ email+"';";
             statement.executeUpdate(url);
-           // customer.setCustomer_id(customers.indexOf(customer) + 1);
         }
 
         catch(Exception e){
             e.printStackTrace();
         }
     }
+    
+    
 
 
 }

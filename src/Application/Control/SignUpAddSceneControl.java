@@ -53,13 +53,6 @@ public class SignUpAddSceneControl {
 	public static void handle_okB() {
 		if (isInputValid()) {
 
-			// Encoding and Decoding
-
-//        	byte[] encodedBytes = Base64.encodeBase64("Test".getBytes());
-//        	System.out.println("encodedBytes " + new String(encodedBytes));
-//        	byte[] decodedBytes = Base64.decodeBase64(encodedBytes);
-//        	System.out.println("decodedBytes " + new String(decodedBytes));  
-
 			byte[] encodedBytes = Base64.encodeBase64(passwordT.getText().getBytes());
 			String encodedPassword = new String(encodedBytes);
 

@@ -6,11 +6,12 @@ import org.apache.commons.codec.binary.Base64;
 
 import Application.DataTypes.Admin;
 import DataAccess.AdminData;
-import Presentation.ForgotPasswordScene;
 import Presentation.LoginScene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+
 
 public class LoginSceneControl {
 
@@ -19,10 +20,13 @@ public class LoginSceneControl {
 	private static Button signUpButton;
 	private static TextField usernameField;
 	private static TextField passwordField;
-	private static Button forgotPass;
+	private static Hyperlink forgotPass;
 	private static ArrayList<Admin> admins;
 	private static String username;
 	private static String password;
+	public static String loggedUser;
+	
+
 
 
 	//initialize
@@ -59,8 +63,6 @@ public class LoginSceneControl {
 			MainControl.ForgotPassScene();
 
 		});
-
-
 	}
 
 	//handle sign Up button
@@ -74,24 +76,17 @@ public class LoginSceneControl {
 		int ok = 0;
 		String paas= "";
 
-		//        byte[] encodedBytes = Base64.encodeBase64("123".getBytes());
-		//    	System.out.println("encodedBytes " + new String(encodedBytes));
-		//    	String enc =  new String(encodedBytes);
-		//    	byte[] decodedBytes = Base64.decodeBase64(enc.getBytes());
-		//    	System.out.println("decodedBytes " + new String(decodedBytes));
-		//    	String dec = new String(decodedBytes);
-
 		if(isInputValid()) {
-
-
-
 
 			//verify the user credentials in database
 			for(Admin admin : AdminData.getAdmins()) {
+				
 				byte[] decodedBytes = Base64.decodeBase64(admin.getPassword().getBytes());
 				System.out.println("decodedBytes " + new String(decodedBytes));
 				paas = new String(decodedBytes);
+				
 				if (admin.getAdmin_id().equalsIgnoreCase(username) && paas.equalsIgnoreCase(password)) {
+					loggedUser = admin.getRole();
 					if ("Customer".equalsIgnoreCase(admin.getRole())) {
 						MainControl.showCustomerMenuScene(); //valid user and password Customer Login
 					}else {

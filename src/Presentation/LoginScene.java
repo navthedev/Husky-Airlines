@@ -4,12 +4,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.TextAlignment;
 
 
 
@@ -22,7 +22,7 @@ public class LoginScene {
     private static Label huskyLabel;
     private static TextField usernameField;
     private static PasswordField passwordField;
-    private static Button forgotPass;
+    private static Hyperlink forgotPass;
 	private static Button loginButton;
 	private static Button signUpButton;
 
@@ -43,11 +43,8 @@ public class LoginScene {
         huskyLabel.setId("welcome");
         
         
-        forgotPass = new Button ("Forgot Password ?");
+        forgotPass = new Hyperlink ("Forgot Password ?");
         forgotPass.setId("Forgot Password");
-        forgotPass.setTextFill(Color.BLUE);
-        forgotPass.setMaxWidth(520);
-        
         
         //usernameField
         usernameField=new TextField();
@@ -101,13 +98,8 @@ public class LoginScene {
         return huskyLabel;
     }
     
-    public static Button getForgotPass() {
+    public static Hyperlink getForgotPass() {
   		return forgotPass;
-  	}
-
-
-  	public static void setForgotPass(Button forgotPass) {
-  		LoginScene.forgotPass = forgotPass;
   	}
 
 
