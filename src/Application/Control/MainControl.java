@@ -20,6 +20,7 @@ import Presentation.ViewCustomersScene;
 import Presentation.ViewFlightsScene;
 import Presentation.ViewPlaneScene;
 import Presentation.VolunteerLoginScene;
+import Presentation.VolunteerSignUpScene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -202,6 +203,21 @@ public class MainControl {
 
         return SignUpAddSceneControl.isOkPressed();
     }
+    
+    //customer edit dialog
+    public static boolean VolunteerSignUpScene(){
+        //initialization of scene
+        Presentation.VolunteerSignUpScene.initialize();
+        VolunteerSignUpSceneControl.initialize();
+
+
+        VolunteerSignUpScene.getDialogStage().initOwner(window);
+        VolunteerSignUpScene.getDialogStage().setTitle("volunteer Signup");
+        VolunteerSignUpScene.getDialogStage().showAndWait();
+
+        return VolunteerSignUpSceneControl.isOkPressed();
+    }
+
 
 
     //flight edit dialog

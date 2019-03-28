@@ -21,6 +21,8 @@ public class LoginSceneControl {
 	private static TextField usernameField;
 	private static TextField passwordField;
 	private static Hyperlink forgotPass;
+	private static Hyperlink volunteerSignUp;
+
 	private static ArrayList<Admin> admins;
 	private static String username;
 	private static String password;
@@ -44,6 +46,8 @@ public class LoginSceneControl {
 		loginButton = LoginScene.getLoginButton();
 		signUpButton = LoginScene.getSignUpButton();
 		forgotPass = LoginScene.getForgotPass();
+		volunteerSignUp = LoginScene.getVolunteerSignup();
+
 		
 		loginButton.setDefaultButton(true);
 		loginButton.setOnAction(e->{
@@ -63,7 +67,13 @@ public class LoginSceneControl {
 			MainControl.ForgotPassScene();
 
 		});
+		
+		volunteerSignUp.setOnAction(e->{
+			MainControl.VolunteerSignUpScene();
+
+		});
 	}
+	
 
 	//handle sign Up button
 	public static void handle_signUpButton(){

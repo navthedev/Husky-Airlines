@@ -23,6 +23,7 @@ public class LoginScene {
     private static TextField usernameField;
     private static PasswordField passwordField;
     private static Hyperlink forgotPass;
+    private static Hyperlink volunteerSignup;
 	private static Button loginButton;
 	private static Button signUpButton;
 
@@ -45,6 +46,9 @@ public class LoginScene {
         
         forgotPass = new Hyperlink ("Forgot Password ?");
         forgotPass.setId("Forgot Password");
+        
+        volunteerSignup = new Hyperlink ("Are you a pilot ? Be a volunteer");
+        volunteerSignup.setId("volunteer");
         
         //usernameField
         usernameField=new TextField();
@@ -69,7 +73,7 @@ public class LoginScene {
         //layout
         loginLayout = new VBox(10);
         loginLayout.setAlignment(Pos.CENTER);
-        loginLayout.getChildren().addAll(huskyLabel,loginLabel,usernameField,passwordField,forgotPass,loginButton,signUpButton);
+        loginLayout.getChildren().addAll(huskyLabel,loginLabel,usernameField,passwordField,forgotPass,volunteerSignup,loginButton,signUpButton);
 
         //scene
         scene = new Scene(loginLayout,400,500);
@@ -115,6 +119,10 @@ public class LoginScene {
         return loginButton;
     }
     
+	public static Hyperlink getVolunteerSignup() {
+		return volunteerSignup;
+	}
+	
 	public static Button getSignUpButton() {
 		return signUpButton;
 	}
